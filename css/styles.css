@@ -39,6 +39,21 @@ body {
   color: var(--logo-accent);
 }
 
+.menu-link.current::after {
+  content: "";
+  width: 100%;
+  height: 4px;
+  background: #2196f3;
+  border-radius: 2px;
+  position: absolute;
+  display: block;
+  margin-top: 30px;
+}
+
+.menu-link {
+  position: relative;
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -562,6 +577,58 @@ a {
   fill: var(--text-accent);
 }
 
+/* Modal */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: scale(1.15);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 581px;
+  min-width: 528px;
+  background-color: var(--background-color-white);
+  display: flex;
+  flex-direction: row-reverse;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.close {
+  width: 18px;
+  height: 18px;
+}
+
+.close-button {
+  background-color: var(--background-color-white);
+  cursor: pointer;
+  display: flex;
+  margin-top: 8px;
+  margin-right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  text-align: center;
+  padding: 6px;
+}
 /* PAGE - Portfolio */
 
 .nav-button {
@@ -593,6 +660,32 @@ a {
   margin-bottom: 4px;
 }
 
+.cases-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.cases-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: var(--text-accent);
+  background-color: rgba(33, 150, 243, 0.9);
+  padding: 63px 24px;
+  font-family: var(--main-font);
+}
+
+.work-links:hover .cases-text {
+  transform: translateY(0);
+}
 .projects-ex {
   padding-top: 20px;
   padding-bottom: 20px;
